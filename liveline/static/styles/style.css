@@ -165,7 +165,6 @@ p, h1, h2, h3, h4, h5, h6 {
   flex-direction: row;
   flex-wrap: wrap;
   max-height: 80vh;
-  overflow: auto;
 }
 #profile #presentations .section-content .presentation-preview {
   width: 150px;
