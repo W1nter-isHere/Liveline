@@ -5,9 +5,10 @@ load_dotenv()
 
 @task
 def debug(ctx):
-    from liveline.app import app
+    from liveline.app import app, socket
     
-    app.run('0.0.0.0', 8000, debug=True)
+    # app.run('0.0.0.0', 8000, debug=True)
+    socket.run(app, '0.0.0.0', 8000, debug=True)
 
 @task
 def sass(ctx):

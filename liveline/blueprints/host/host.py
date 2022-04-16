@@ -27,10 +27,20 @@ def allowed_file(filename):
     return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-@host.route("/presentation_creator", methods=["GET", "POST"])
+@host.route("/presentation_creator/<id>")
 @flask_login.login_required
-def presentation_creator():
-    return render_template("host/presentation_creator.html")
+def presentation_creator(id):
+    return render_template("host/presentation_creator.html", id=id)
+
+
+@host.route("/presentation_creator/<id>/delete_slide/<index>")
+def delele_slide(id, index):
+    try:
+        database.get_presentation(id).slides.pop(index)
+        database.commit()
+    except database.PresentationNotFoundException:
+        return (404, "Presentation not found")
+    return (200, "")
 
 
 @host.route("/presentation_creator_confirm", methods=["GET", "POST"])
@@ -39,16 +49,18 @@ def presentation_creator_confirm():
     if request.method == "POST":
         return create_presentation_internal(request.form["presentation_name"])
     return render_template("host/presentation_creator_confirmation.html")
-    return redirect(url_for("host.presentation_creator"))
 
 
 def create_presentation_internal(name: str):
-    flask_login.current_user.presentations.append(
-        presentation.Presentation([], str(name), str(uuid.uuid4()))
+    pres = presentation.Presentation(
+        [], str(name), str(uuid.uuid4()), str(flask_login.current_user.id)
     )
+    flask_login.current_user.presentations.append(pres.identifier)
+    database.add_presentation(pres)
     database.commit()
-    return redirect(url_for("host.presentation_creator"))
+    return redirect(url_for("host.presentation_creator", id=pres.identifier))
 
-@host.route('/present/<id>')
+
+@host.route("/present/<id>")
 def present(id):
-    return render_template('host/presentation.html')
+    return render_template("host/presentation.html", id=id)

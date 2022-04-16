@@ -2,6 +2,7 @@ from flask import Flask, redirect, url_for, render_template
 from os import getenv
 
 import flask_login
+from flask_socketio import SocketIO
 import logging
 import colorama
 
@@ -16,7 +17,10 @@ logger.info("Starting...")
 
 app = Flask(__name__)
 app.config.update(SECRET_KEY=getenv("SECRET_KEY"))
-print(app.config["SECRET_KEY"])
+
+socket = SocketIO(app)
+import liveline.sockets
+
 auth.init_login_manager(app)
 
 logger.info('Loading "Auth" blueprint...')
@@ -31,6 +35,8 @@ app.register_blueprint(viewer.viewer, url_prefix="/viewer")
 logger.info('Loading "Host" blueprint...')
 app.register_blueprint(host.host, url_prefix="/host")
 
+logger.info('Loading "Host" blueprint...')
+app.register_blueprint(host.host, url_prefix="/host")
 
 @app.route("/")
 def home():

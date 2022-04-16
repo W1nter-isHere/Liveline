@@ -1,12 +1,26 @@
 {% extends 'base.html' %}
 {% block ex_headers %}
     <script>
-        const ID = {{id}};
+        const ID = "{{id}}";
     </script>
 
-    <script defer src="/static/js/presentation_slides.js"></script>
+    <script src="https://cdn.socket.io/4.4.1/socket.io.min.js" integrity="sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H" crossorigin="anonymous"></script>
+
+    <script defer src="/static/js/render_slides.js"></script>
+    <script defer src="/static/js/participant.js"></script>
 {% endblock %}
 {% block content %}
+    <header id="navbar">
+        <nav id="nav-left">
+            <a href="/" class="navbar-item">
+                <img src="/static/resources/logo.svg" alt="Logo">
+            </a>
+            <a href="/" class="navbar-item" id="navbar-title">Liveline</a>
+        </nav>
+        <nav id="nav-right">
+            <button class="button navbar-item hoverable" title="Leave" onclick="">Leave</button>
+        </nav>
+    </header>
     <main id="pres-view">
 
     </main>

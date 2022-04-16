@@ -2,83 +2,36 @@
     "users": [
         {
             "username": "winterSteve25",
-            "password": "$argon2id$v=19$m=65536,t=3,p=4$7AlEockY3brk2nYtEL29yA$LJVLr33sQTUbjy1o0vWftPxc/4sYadlOLzc3Bj1PUdI",
-            "id": "a83aa23a-3003-4b51-9b49-01d83c6a53e8",
-            "pfp_path": "/static/resources/users/a83aa23a-3003-4b51-9b49-01d83c6a53e8.png",
+            "password": "$argon2id$v=19$m=65536,t=3,p=4$HcXeDzlDn26yDax5CNnpVw$9sM0n+ZPog5OLDhGGqUdUjFGErm9XWwXENZwMqns2Lc",
+            "id": "0dfbebfb-9996-4a33-8075-72d9122064f7",
+            "pfp_path": "/static/resources/users/unknown_user.svg",
             "presentations": [
-                {
-                    "slides": [],
-                    "name": "Test Presentation",
-                    "identifier": "2960fb03-a1ad-48b6-a9a5-03048f204369"
-                },
-                {
-                    "slides": [],
-                    "name": "ICS3U-Microbit Experiment",
-                    "identifier": "7d8968b6-7fbf-4451-a767-217aefb61e67"
-                },
-                {
-                    "slides": [],
-                    "name": "Untitled Liveline Presentation",
-                    "identifier": "6635ae90-2114-48b8-af2b-d2d8c866f983"
-                },
-                {
-                    "slides": [],
-                    "name": "Untitled Liveline Presentation",
-                    "identifier": "f155d182-9e58-4e94-af7d-6a661795630f"
-                },
-                {
-                    "slides": [],
-                    "name": "Untitled Liveline Presentation",
-                    "identifier": "6eaceb7e-c69b-4a63-b9aa-b782bc368d28"
-                },
-                {
-                    "slides": [],
-                    "name": "Untitled Liveline Presentation",
-                    "identifier": "4f1866aa-4cf4-4503-862b-af658ff779de"
-                },
-                {
-                    "slides": [],
-                    "name": "Untitled Liveline Presentation",
-                    "identifier": "3b78bea7-744a-4029-99b5-bbb735ac828c"
-                },
-                {
-                    "slides": [],
-                    "name": "Untitled Liveline Presentation",
-                    "identifier": "6c55d793-a19d-4d19-b62d-8b8294dda7fa"
-                },
-                {
-                    "slides": [],
-                    "name": "Untitled Liveline Presentation",
-                    "identifier": "1eaf6c5e-78dd-4c1f-819e-2bef392b7933"
-                },
-                {
-                    "slides": [],
-                    "name": "Untitled Liveline Presentation",
-                    "identifier": "a63114ea-2be0-48fb-87fb-07d564435d05"
-                },
-                {
-                    "slides": [],
-                    "name": "Untitled Liveline Presentation",
-                    "identifier": "d9af5d14-1fb3-45bd-98af-bcae55d5884d"
-                },
-                {
-                    "slides": [],
-                    "name": "Untitled Liveline Presentation",
-                    "identifier": "1ee12855-6778-4857-8c07-27cf905f942c"
-                },
-                {
-                    "slides": [],
-                    "name": "Untitled Liveline Presentation",
-                    "identifier": "1c7ba644-d730-459a-ba43-9b4115aaef01"
-                }
+                "47292564-f99b-4b7c-9c24-777d78f89ab4"
             ]
+        }
+    ],
+    "presentations": [
+    ],
+    "rooms": [
+        {
+            "code": "521362",
+            "host_key": "db44d7809f324e89a57f3ea1e1a426ae"
         },
         {
-            "username": "Raster",
-            "password": "$argon2id$v=19$m=65536,t=3,p=4$bJbDUEsUiRocKcXFu2m1UA$rHq6YNlDRmjWbkUbjM6mH2ZXcOGz6pBVGMHK6aJIH84",
-            "id": "f3622802-1e2c-45db-8567-935229ee8d12",
-            "pfp_path": "/static/resources/users/unknown_user.svg",
-            "presentations": []
+            "code": "997397",
+            "host_key": "f56a91ba91454f76a171e2d434cb5b92"
+        },
+        {
+            "code": "469171",
+            "host_key": "dcc0724188ff469ca7cdb021c974a77f"
+        },
+        {
+            "code": "945215",
+            "host_key": "6333f11f7d024770bf089d98be77b023"
+        },
+        {
+            "code": "239889",
+            "host_key": "62b9b3500cf34ded9a441ea2a551577c"
         }
     ]
 }

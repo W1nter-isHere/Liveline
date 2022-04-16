@@ -27,6 +27,7 @@ function makePresentationPreviewElement(presentation) {
         if (groupContent != null && groupContent != undefined) {
             const presentationElement = document.createElement("a");
             presentationElement.setAttribute("class", "presentation-preview hoverable");
+            presentationElement.setAttribute("href", "/host/present/"+presentation.identifier);
             presentationElement.innerHTML = presentation.name;
             groupContent.appendChild(presentationElement);
         }

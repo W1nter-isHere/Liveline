@@ -1,1 +1,1 @@
-from .database import database, User, UserNotFoundException, PFP_PATH, PRESENTATION_PATH
+from .database import database, User, Room, UserNotFoundException, RoomNotFoundException, PFP_PATH, PRESENTATION_PATH

@@ -1,20 +1,27 @@
 {% extends 'base.html' %}
+{% block ex_headers %}
+    <script>
+        const ID = "{{id}}";
+    </script>
 
+    <script defer src="/static/js/render_slides.js"></script>
+    <script defer src="/static/js/presentation_creator.js"></script>
+{% endblock %}
 {% block content %}
-    <main id="presentation_creator">
-        <div id="sidebar">
-            <span draggable="true">Text Element</span>
-            <span draggable="true">Image Element</span>
-        </div>
-
-        <form class="drop-form" action="#" method="post" enctype=multipart/form-data>
-            <div id="preview" class="drop-area">
-            </div>
-
-            <input class="upload-input" type="file" name="presentation" accept="image/png, image/jpeg, image/svg" hidden="hidden">
-            <input type=submit value="Upload" hidden="hidden">
-        </form>
-
-        <script src="/static/js/drag_drop.js"></script>
+    <header id="navbar">
+        <nav id="nav-left">
+            <a href="/" class="navbar-item">
+                <img src="/static/resources/logo.svg" alt="Logo">
+            </a>
+            <a href="/" class="navbar-item" id="navbar-title">Liveline</a>
+        </nav>
+        <nav id="nav-right">
+            <button class="button navbar-item hoverable" title="Delete the slide you are currently viewing" onclick="deleteSlide()">Delete Current Slide</button>
+            <button class="button navbar-item hoverable" title="<- Last Slide" onclick="lastSlideLocal()"><- Last Slide</button>
+            <button class="button navbar-item hoverable" title="Next Slide ->" onclick="nextSlideLocal()">Next Slide -></button>
+        </nav>
+    </header>
+    <main id="pres-view">
+        
     </main>
 {% endblock %}

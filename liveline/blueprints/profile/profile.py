@@ -1,6 +1,7 @@
 from flask import Blueprint, redirect, render_template, request, url_for, jsonify
 from liveline.database.database import PFP_PATH, database, UserNotFoundException
 from liveline.logger import logger
+from liveline.presentation.presentation import Presentation
 from werkzeug.utils import secure_filename
 
 import flask_login
@@ -42,15 +43,18 @@ def profile_page():
         pfp=flask_login.current_user.pfp_path,
     )
 
+
 @profile.route("/user/presentations")
 @flask_login.login_required
 def send_user_data():
     try:
         user = database.get_user(flask_login.current_user.id)
-        return jsonify(user.serialize_presentations())
+        presentations = database.get_presentations_with_owner(user.id)
+        return jsonify(Presentation.serialize_presentations(presentations))
     except UserNotFoundException:
         logger.error("Can not find current logged in user in database!")
         return redirect(url_for("auth.login"))
+
 
 def allowed_file(filename):
     return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS

@@ -33,6 +33,7 @@ class BaseSlide:
             slides.append(BaseSlide.deserialize_slide(slide_dict))
         return slides
 
+
 @dataclass
 class TitleSlide(BaseSlide):
     image: Optional[str] = None
