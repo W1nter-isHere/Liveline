@@ -1,0 +1,66 @@
+{
+    "users": [
+        {
+            "username": "winterSteve25",
+            "password": "$argon2id$v=19$m=65536,t=3,p=4$GmDANKA7q3ZowoM51BILrg$5s59+9md5GYT12DQfdV8uPTvuXxZ8tIEs3aF8ypq2VU",
+            "id": "28d0e600-9cea-40b1-bdfd-2214971181de",
+            "pfp_path": "/static/resources/users/unknown_user.svg",
+            "presentations": [
+                "a16caabe-6b5c-4b05-8fa1-918dab64f0ac"
+            ]
+        },
+        {
+            "username": "Raster",
+            "password": "$argon2id$v=19$m=65536,t=3,p=4$OLofSDshBPz+UQ+y3IYoVw$dgCTkkwuoWMsqkk8DZ+YZrp+VRVX2l1yAasVbcsPJeE",
+            "id": "4219edd2-d397-4b16-91cd-9ae67740c388",
+            "pfp_path": "/static/resources/users/unknown_user.svg",
+            "presentations": [
+                "a3d8dd25-1a76-4d87-855f-c931dda64bca"
+            ]
+        }
+    ],
+    "presentations": [
+        {
+            "slides": [],
+            "name": "Untitled Liveline Presentation",
+            "identifier": "a3d8dd25-1a76-4d87-855f-c931dda64bca",
+            "creator": "4219edd2-d397-4b16-91cd-9ae67740c388"
+        },
+        {
+            "slides": [],
+            "name": "Untitled Liveline Presentation",
+            "identifier": "a16caabe-6b5c-4b05-8fa1-918dab64f0ac",
+            "creator": "28d0e600-9cea-40b1-bdfd-2214971181de"
+        }
+    ],
+    "rooms": [
+        {
+            "code": "932420",
+            "host_key": "17b190806956408ab4eb40b7e0ca2a5a",
+            "presentation": {
+                "ID": "a3d8dd25-1a76-4d87-855f-c931dda64bca"
+            }
+        },
+        {
+            "code": "479790",
+            "host_key": "b5ddcadedd354a4f8891081081212e60",
+            "presentation": {
+                "ID": "a3d8dd25-1a76-4d87-855f-c931dda64bca"
+            }
+        },
+        {
+            "code": "710377",
+            "host_key": "47ce45f3ce82493db9e2e1616a415bb6",
+            "presentation": {
+                "ID": "a3d8dd25-1a76-4d87-855f-c931dda64bca"
+            }
+        },
+        {
+            "code": "425751",
+            "host_key": "827bc616d7d34072ba111659909e4db3",
+            "presentation": {
+                "ID": "a16caabe-6b5c-4b05-8fa1-918dab64f0ac"
+            }
+        }
+    ]
+}

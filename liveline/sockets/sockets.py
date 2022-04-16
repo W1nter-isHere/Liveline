@@ -5,15 +5,15 @@ import uuid
 from dataclasses import asdict
 
 @socket.on("newRoom")
-def new_room():
-    room = Room.create_and_add()
+def new_room(pres):
+    room = Room.create_and_add(pres)
+    print("created room with code: " + room.code)
     join_room(room.code)
     emit("newRoom", asdict(room))
 
 
 @socket.on("join")
 def on_join(data):
-    username = data["username"]
     room = data["room"]
     join_room(room)
 

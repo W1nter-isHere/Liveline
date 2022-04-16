@@ -35,9 +35,6 @@ app.register_blueprint(viewer.viewer, url_prefix="/viewer")
 logger.info('Loading "Host" blueprint...')
 app.register_blueprint(host.host, url_prefix="/host")
 
-logger.info('Loading "Host" blueprint...')
-app.register_blueprint(host.host, url_prefix="/host")
-
 @app.route("/")
 def home():
     if flask_login.current_user.is_authenticated:

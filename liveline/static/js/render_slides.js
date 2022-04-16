@@ -1,9 +1,23 @@
-let pres = JSON.parse(httpGet(`/viewer/${ID}.json`)).slides;
+let pres;
 
 let currentSlide = 0;
-let slideCount = pres.length;
+let slideCount;
 
 let view = $("#pres-view");
+
+function reloadSlides(room) {
+    if (room) {
+        pres = JSON.parse(httpGet(`/viewer/${ROOM_CODE}.json`)).slides;
+    } else {
+        pres = JSON.parse(httpGet(`/viewer/id/${ID}.json`)).slides;
+    }
+
+    slideCount = pres.length
+    if (currentSlide >= pres.length || currentSlide < 0) {
+        currentSlide = 0;
+    }
+    renderSlide(currentSlide);
+}
 
 function renderSlide(idx) {
     view.empty();
@@ -110,8 +124,6 @@ function getTextHeight(text) {
     parseInt(window.getComputedStyle(text[0]).fontSize, 10);
 }
 
-renderSlide(currentSlide);
-
 function nextSlideLocal() {
     if (currentSlide + 1 < slideCount) {
         currentSlide++;
@@ -124,12 +136,4 @@ function lastSlideLocal() {
         currentSlide--;
         renderSlide(currentSlide);
     }
-}
-
-function reloadSlides() {
-    pres = JSON.parse(httpGet(`/viewer/${ID}.json`)).slides;
-    if (currentSlide >= pres.length || currentSlide < 0) {
-        currentSlide = 0;
-    }
-    renderSlide(currentSlide);
 }

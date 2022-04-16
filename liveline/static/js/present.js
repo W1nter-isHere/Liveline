@@ -19,7 +19,9 @@ socket.on("newRoom", (data) => {
 });
 
 function present() {
-    socket.emit("newRoom");
+    socket.emit("newRoom", {
+        ID: ID
+    });
 }
 
 function endPresent() {
@@ -29,7 +31,7 @@ function endPresent() {
 function updateSlide() {
     renderSlide(currentSlide)
     socket.emit("changeSlide", {
-        room: 123,
+        room: roomCode,
         slide: currentSlide
     });
 }

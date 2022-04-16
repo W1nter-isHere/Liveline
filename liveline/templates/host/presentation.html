@@ -7,6 +7,7 @@
     <script src="https://cdn.socket.io/4.4.1/socket.io.min.js" integrity="sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H" crossorigin="anonymous"></script>
 
     <script defer src="/static/js/render_slides.js"></script>
+    <script defer src="/static/js/host_view.js"></script>
     <script defer src="/static/js/present.js"></script>
 {% endblock %}
 {% block content %}
@@ -18,7 +19,8 @@
             <a href="/" class="navbar-item" id="navbar-title">Liveline</a>
         </nav>
         <nav id="nav-right">
-            <button class="button navbar-item hoverable" title="Present" onclick="">Present</button>
+            <button class="button navbar-item hoverable" title="Present" onclick="present()">Start Presenting</button>
+            <button class="button navbar-item hoverable" title="Present" hidden="hidden" onclick="present()">Stop Presenting</button>
             <a href="/host/presentation_creator/{{id}}" class="button navbar-item hoverable" title="Edit">Edit</a>
             <button class="button navbar-item hoverable" title="<- Last Slide" onclick="lastSlide()"><- Last Slide</button>
             <button class="button navbar-item hoverable" title="Next Slide ->" onclick="nextSlide()">Next Slide -></button>

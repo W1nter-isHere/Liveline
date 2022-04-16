@@ -49,7 +49,9 @@ def profile_page():
 def send_user_data():
     try:
         user = database.get_user(flask_login.current_user.id)
+        print(user)
         presentations = database.get_presentations_with_owner(user.id)
+        print(presentations)
         return jsonify(Presentation.serialize_presentations(presentations))
     except UserNotFoundException:
         logger.error("Can not find current logged in user in database!")

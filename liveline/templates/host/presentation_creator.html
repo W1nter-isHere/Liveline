@@ -5,6 +5,7 @@
     </script>
 
     <script defer src="/static/js/render_slides.js"></script>
+    <script defer src="/static/js/host_view.js"></script>
     <script defer src="/static/js/presentation_creator.js"></script>
 {% endblock %}
 {% block content %}
@@ -16,7 +17,15 @@
             <a href="/" class="navbar-item" id="navbar-title">Liveline</a>
         </nav>
         <nav id="nav-right">
-            <button class="button navbar-item hoverable" title="Delete the slide you are currently viewing" onclick="deleteSlide()">Delete Current Slide</button>
+            <div class="navbar-item dropdown">
+                <span class="button hoverable">Actions</span>
+                <div class="dropdown-content">
+                    <button class="button hoverable">Add new text slide</button>
+                    <button class="button hoverable">Add new title slide</button>
+                    <button class="button hoverable">Add new image slide</button>
+                </div>
+            </div>
+            <a href="/host/present/{{id}}" class="button navbar-item hoverable" title="Present">Present</a>
             <button class="button navbar-item hoverable" title="<- Last Slide" onclick="lastSlideLocal()"><- Last Slide</button>
             <button class="button navbar-item hoverable" title="Next Slide ->" onclick="nextSlideLocal()">Next Slide -></button>
         </nav>

@@ -6,8 +6,7 @@ socket.on("connect", () => {
 });
 
 socket.emit("join", {
-    username: "user",
-    room: 123
+    room: ROOM_CODE
 });
 
 socket.on("join", (data) => {
