@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=1920, height=1080, initial-scale=1.0"> -->
+    <title>Liveline</title>
+    <link rel="stylesheet" href="/static/styles/style.css">
+    <link rel="icon" href="/static/resources/logo.svg"/>
+
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script defer src="/static/js/jquery.textfill.min.js"></script>
+    <script src="/static/js/http_get.js"></script>
+
+    {% block ex_headers %}
+        
+    {% endblock %}
+</head>
+<body {% block body_attrs %}{% endblock %}>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <main id="profile" x-data="{ upload_pfp: false }">
+        <section id="profile-headers">
+            <img src="{{pfp}}" alt="Profile Picture" @click="upload_pfp = !upload_pfp">
+            <h1 class="title">{{username}}'s Profile</h1>
+        </section>
+        
+        <section id="presentations">
+            <div class="section-header">
+                <h2 class="subtitle">Presentations</h2> 
+                <a href="{{url_for("host.presentation_creator_confirm")}}" class="button hoverable">Create Presentation</a>
+            </div>
+            <div class="section-content">
+                <p id="no-presentation-label">You don't have any presentation, click Create Presentation to get started!</p>
+            </div>
+        </section>
+
+        <a href="{{url_for('auth.logout')}}" class="button hoverable">Logout</a>
+        
+        <div class="overlay" x-show="upload_pfp"></div>
+
+        <div id="upload-pfp" x-show="upload_pfp">
+            <form class="drop-form" action="#" method="post" enctype=multipart/form-data>
+                <div class="drop-area">
+                    <span class="drop-label">Drag and Drop an image or click to select</span>
+                </div>
+                <input class="upload-input" type="file" name="pfp" accept="image/png, image/jpeg, image/svg" hidden="hidden">
+                <input type=submit value="Upload" class="button hoverable">
+            </form>
+            <button class="button hoverable" @click="upload_pfp = false">Cancel</button>
+        </div>
+    
+        <script src="/static/js/drag_drop.js"></script>
+        <script src="/static/js/profile_page.js"></script>
+    </main>
+{% endblock %}
