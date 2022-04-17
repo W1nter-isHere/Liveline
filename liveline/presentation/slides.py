@@ -2,7 +2,6 @@ from __future__ import annotations
 from dataclasses import dataclass, asdict, field
 from typing import Optional, List, Dict, Any
 
-
 @dataclass
 class BaseSlide:
     typ: str = field(init=False)
@@ -17,12 +16,14 @@ class BaseSlide:
 
         if TYPE == "TitleSlide":
             return TitleSlide(slide_json["title"], slide_json["image"])
-        if TYPE == "TextSlide":
+        elif TYPE == "TextSlide":
             return TextSlide(
                 slide_json["title"], slide_json["text"], slide_json["image"]
             )
-        if TYPE == "ImageSlide":
+        elif TYPE == "ImageSlide":
             return ImageSlide(slide_json["title"], slide_json["images"])
+        elif TYPE == "PollSlide":
+            return PollSlide(slide_json["title"], slide_json["image"], slide_json["options"])
 
         return BaseSlide(slide_json["title"])
 
@@ -48,3 +49,26 @@ class TextSlide(BaseSlide):
 @dataclass
 class ImageSlide(BaseSlide):
     images: List[str]
+
+@dataclass
+class PollSlide(BaseSlide):
+    image: Optional[str]
+    options: List[str]
+
+TEMPLATE_TITLE = TitleSlide(
+    "Title",
+    None
+)
+
+TEMPLATE_TEXT = TextSlide(
+    "Title",
+    "content",
+    None
+)
+
+TEMPLATE_IMAGE = ImageSlide(
+    "Title",
+    [
+        "https://imgur.com/Kv504Sh"
+    ]
+)

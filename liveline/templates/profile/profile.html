@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <main id="profile" x-data="{ upload_pfp: false }">
+    <main id="profile" x-data="{ upload_pfp: false, rename: false }">
         <section id="profile-headers">
             <img src="{{pfp}}" alt="Profile Picture" @click="upload_pfp = !upload_pfp">
             <h1 class="title">{{username}}'s Profile</h1>
@@ -21,6 +21,7 @@
         <a href="{{url_for('auth.logout')}}" class="button hoverable">Logout</a>
         
         <div class="overlay" x-show="upload_pfp"></div>
+        <div class="overlay" x-show="rename"></div>
 
         <div id="upload-pfp" x-show="upload_pfp">
             <form class="drop-form" action="#" method="post" enctype=multipart/form-data>
@@ -32,7 +33,23 @@
             </form>
             <button class="button hoverable" @click="upload_pfp = false">Cancel</button>
         </div>
+
+        <div id="context-menu" hidden="hidden">
+            <button class="context-item hoverable" @click="rename = !rename" onclick="setRenameData()">Rename</button>
+            <button class="context-item hoverable" onclick="deletePres()">Delete</button>
+        </div>
     
+        <div class="popup" x-show="rename">
+            <main>
+                <h1 class="title">Rename</h1>
+                <form id="rename_setup" action="#" method="post" enctype=multipart/form-data>
+                    <input type="text" name="new_name" id="new_name" placeholder="New Name"><br>
+                    <input type=submit value="Confirm" class="button hoverable">
+                </form>
+                <a href="{{url_for('profile.profile_page')}}" class="button hoverable">Cancel</a>
+            </main>
+        </div>
+
         <script src="/static/js/drag_drop.js"></script>
         <script src="/static/js/profile_page.js"></script>
     </main>

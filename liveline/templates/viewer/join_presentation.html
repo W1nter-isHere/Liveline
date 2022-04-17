@@ -2,6 +2,16 @@
 {% block content %}
     <div class="popup">
         <main id="setup">
+            {% with messages = get_flashed_messages() %}
+				{% if messages %}
+					<header class="flashes">
+						{% for message in messages %}
+							<p>{{ message }}</p>
+						{% endfor %}
+					</header>
+				{% endif %}
+			{% endwith %}
+
             <h1 class="title">Join Presentation</h1>
             <form action="#" method="post" enctype=multipart/form-data>
                 <input type="text" name="room_code" id="room_code" placeholder="Room Code"><br>

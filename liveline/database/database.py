@@ -8,6 +8,8 @@ from dataclasses import asdict, dataclass
 import json
 import uuid
 from random import randint
+from flask_socketio import emit
+import time
 
 from liveline.logger import logger
 from liveline.presentation.presentation import Presentation
@@ -72,11 +74,12 @@ class Room:
     code: str
     host_key: str
     presentation: str
+    ping: float = time.time()
 
     # deserialize user back into a python object from a json object
     @staticmethod
     def deserialize(inp: Dict[str, Any]) -> Room:
-        room = Room(inp["code"], inp["host_key"], inp["presentation"])
+        room = Room(inp["code"], inp["host_key"], inp["presentation"], inp["ping"])
         return room
     
     @staticmethod
@@ -84,7 +87,8 @@ class Room:
         return Room(
             Room.gen_unique_room_code(),
             Room.gen_host_key(),
-            presentation
+            presentation,
+            time.time()
         )
 
     @staticmethod
@@ -200,6 +204,17 @@ class Database:
         self.__rooms = list(filter(lambda room: room.code != room_code, self.__rooms))
         self.commit()
 
+    def clean_rooms(self):
+        for room in self.__rooms:
+            if time.time() - room.ping > 61:
+                self.remove_room(room.code)
+
+        self.commit()
+        
+    def ping_room(self, code):
+        self.get_room(code).ping = time.time()
+        self.commit()
+
     ##################################################
 
     # get presentation with owner id
@@ -230,6 +245,12 @@ class Database:
     def add_presentation(self, pres: Presentation):
         self.__presentations.append(pres)
         self.commit()
+    
+    # remove presetation from database
+    def remove_presentation(self, id: str):
+        if self.has_presentation(id):
+            self.__presentations = list(filter(lambda pres: pres.identifier != id, self.__presentations))
+            self.commit()
 
     ######################################
 
@@ -253,7 +274,9 @@ class Database:
             self.__users = Database.deserialize_users(data["users"])
             self.__presentations = Database.deserialize_presentations(data["presentations"])
             self.__rooms = Database.deserialize_rooms(data["rooms"])
-        except KeyError:
+        except KeyError as e:
+            logger.error("Encountered deserialization key error")
+            print(e)
             pass
 
     # serialize users in database to json
@@ -275,11 +298,11 @@ class Database:
         )
 
     def serialize_rooms(self) -> List[Dict[str, Any]]:
-        return list(map(lambda room: asdict(room), self.__rooms))
+        return list(map(asdict, self.__rooms))
 
     @staticmethod
     def deserialize_rooms(rooms) -> List[Room]:
-        return list(map(lambda room: Room.deserialize(room), rooms))
+        return list(map(Room.deserialize, rooms))
 
 
 database: Database = Database()

@@ -6,8 +6,8 @@
 
     <script src="https://cdn.socket.io/4.4.1/socket.io.min.js" integrity="sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H" crossorigin="anonymous"></script>
 
-    <script defer src="/static/js/render_slides.js"></script>
     <script defer src="/static/js/participant.js"></script>
+    <script defer src="/static/js/render_slides.js"></script>
     <script defer src="/static/js/viewer_view.js"></script>
 {% endblock %}
 {% block content %}
@@ -23,6 +23,6 @@
         </nav>
     </header>
     <main id="pres-view">
-
     </main>
+    <span id="slide_index"></span>
 {% endblock %}

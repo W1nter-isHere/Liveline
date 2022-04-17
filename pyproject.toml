@@ -13,6 +13,7 @@ python-dotenv = "^0.20.0"
 colorama = "^0.4.4"
 argon2-cffi = "^21.3.0"
 Flask-SocketIO = "^5.1.1"
+Flask-APScheduler = "^1.12.3"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

@@ -3,6 +3,7 @@ from os import getenv
 
 import flask_login
 from flask_socketio import SocketIO
+from flask_apscheduler import APScheduler
 import logging
 import colorama
 
@@ -20,6 +21,14 @@ app.config.update(SECRET_KEY=getenv("SECRET_KEY"))
 
 socket = SocketIO(app)
 import liveline.sockets
+
+scheduler = APScheduler()
+# scheduler.api_enabled = True
+
+import liveline.jobs
+
+scheduler.init_app(app)
+scheduler.start()
 
 auth.init_login_manager(app)
 

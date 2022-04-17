@@ -77,7 +77,7 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 #navbar {
-    width: 96.2vw;
+    width: 98vw;
     height: 100px;
     padding: 0 50px;
     margin: 0 -50px;
@@ -267,6 +267,43 @@ p, h1, h2, h3, h4, h5, h6 {
         margin-top: 2%;
     }
 
+    #context-menu {
+        position: absolute;
+        z-index: 1;
+
+        background-color: $fg;
+        
+        width: auto;
+        height: 100px;
+        
+        border-style: solid;
+        border-color: $highlight;
+        border-radius: 5px;
+
+        display: none;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        .context-item {
+            margin: 5px;
+
+            border-style: none;
+            border-radius: 5px;
+            background-color: $bg2;
+            color: $fg;
+
+            width: 100px;
+            height: 30px;
+
+            transition: all .25s;
+
+            &:hover {
+                background-color: $bg;
+            }
+        }
+    }
+
     #presentations .section-content {
         @include flex-centered();
         justify-content: left;
@@ -403,7 +440,7 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 #pres-view {
-    height: 88vh;
+    height: 75vh;
     padding: 6vh 6vw;
 
     * {
@@ -420,13 +457,11 @@ p, h1, h2, h3, h4, h5, h6 {
     }
 
     article {
-        height: 74vh;
-
-        width: 88vw;
+        height: 85%;
+        width: 100%;
 
         div {
             flex-grow: 999;
-
             width: 100%;
         }
     }
@@ -448,7 +483,7 @@ p, h1, h2, h3, h4, h5, h6 {
     &.image-slide {
         article {
             width: 90vw;
-            height: 75vh;
+            height: 60vh;
 
             display: flex;
             justify-content: space-evenly;
@@ -466,4 +501,20 @@ p, h1, h2, h3, h4, h5, h6 {
             }
         }
     }
+
+    &.poll-slide {
+        button {
+            width: 100%;
+            margin-bottom: 1vh;
+        }
+    }
+}
+
+#slide_index {
+    position: absolute;
+    left: 2vw;
+    bottom: 2vh;
+
+    font-family: $font;
+    color: $fg;
 }

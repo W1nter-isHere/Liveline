@@ -9,9 +9,9 @@ from flask import (
     make_response,
 )
 from liveline.logger import logger
-from liveline.presentation import slide, widget, presentation
+from liveline.presentation import widget, presentation, slides
 from liveline.presentation.slides import TitleSlide
-from liveline.database import PRESENTATION_PATH, database
+from liveline.database import PRESENTATION_PATH, database, PresentationNotFoundException
 from dataclasses import asdict
 from werkzeug.utils import secure_filename
 
@@ -36,11 +36,30 @@ def presentation_creator(id):
 @host.route("/presentation_creator/<id>/delete_slide/<index>")
 def delele_slide(id, index):
     try:
-        database.get_presentation(id).slides.pop(index)
+        pres = database.get_presentation(id)
+        if len(pres.slides) - 1 < 0:
+            return ("Slide is empty!", 404)
+        pres.slides.pop(int(index))
         database.commit()
-    except database.PresentationNotFoundException:
-        return (404, "Presentation not found")
-    return (200, "")
+    except PresentationNotFoundException:
+        return ("Presentation not found", 404)
+    return ("", 200)
+
+@host.route("/presentation_creator/<id>/add_slide/<typ>")
+def add_slide(id, typ):
+    try:
+        s = database.get_presentation(id).slides
+        if typ == "TitleSlide":
+            s.append(slides.TEMPLATE_TITLE)
+        elif typ == "TextSlide":
+            s.append(slides.TEMPLATE_TEXT)
+        elif typ == "ImageSlide":
+            s.append(slides.TEMPLATE_IMAGE)
+        database.commit()
+    except PresentationNotFoundException:
+        return ("Presentation not found", 404)
+
+    return ("", 200)
 
 
 @host.route("/presentation_creator_confirm", methods=["GET", "POST"])

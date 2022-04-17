@@ -4,8 +4,10 @@
         const ID = "{{id}}";
     </script>
 
+    <script src="https://cdn.socket.io/4.4.1/socket.io.min.js" integrity="sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H" crossorigin="anonymous"></script>
+
     <script defer src="/static/js/render_slides.js"></script>
-    <script defer src="/static/js/host_view.js"></script>
+    <script defer src="/static/js/editor_view.js"></script>
     <script defer src="/static/js/presentation_creator.js"></script>
 {% endblock %}
 {% block content %}
@@ -20,9 +22,11 @@
             <div class="navbar-item dropdown">
                 <span class="button hoverable">Actions</span>
                 <div class="dropdown-content">
-                    <button class="button hoverable">Add new text slide</button>
-                    <button class="button hoverable">Add new title slide</button>
-                    <button class="button hoverable">Add new image slide</button>
+                    <button class="button hoverable" onclick="addNewSlide('TextSlide')">Add new text slide</button>
+                    <button class="button hoverable" onclick="addNewSlide('TitleSlide')">Add new title slide</button>
+                    <button class="button hoverable" onclick="addNewSlide('ImageSlide')">Add new image slide</button>
+                    <button class="button hoverable" onclick="deleteSlide()">Delete slide</button>
+                    <button class="button hoverable" onclick="save()">Save Presentation</button>
                 </div>
             </div>
             <a href="/host/present/{{id}}" class="button navbar-item hoverable" title="Present">Present</a>
@@ -31,6 +35,24 @@
         </nav>
     </header>
     <main id="pres-view">
-        
     </main>
+
+    <div x-data="{ img_reroute: false }">
+        <div id="context-menu" hidden="hidden">
+            <button class="context-item hoverable" @click="img_reroute = !img_reroute">Edit</button>
+        </div>
+
+        <div class="popup" x-show="img_reroute">
+            <main>
+                <h1 class="title">Rename</h1>
+                <form id="rename_setup" action="#" method="post" enctype=multipart/form-data>
+                    <input type="text" name="new_name" id="new_name" placeholder="New Image"><br>
+                    <input type=submit value="Confirm" class="button hoverable">
+                </form>
+                <button class="button hoverable" @click="img_reroute = !img_reroute">Cancel</button>
+            </main>
+        </div>
+    </div>
+
+    <span id="slide_index"></span>
 {% endblock %}

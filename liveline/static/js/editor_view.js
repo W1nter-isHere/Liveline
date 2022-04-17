@@ -1,0 +1,1 @@
+reloadSlidesEditable(false, true)

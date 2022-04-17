@@ -54,7 +54,7 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 #navbar {
-  width: 96.2vw;
+  width: 98vw;
   height: 100px;
   padding: 0 50px;
   margin: 0 -50px;
@@ -211,6 +211,33 @@ p, h1, h2, h3, h4, h5, h6 {
   width: 80px;
   cursor: pointer;
 }
+#profile #context-menu {
+  position: absolute;
+  z-index: 1;
+  background-color: #E5E5E5;
+  width: auto;
+  height: 100px;
+  border-style: solid;
+  border-color: #CCA43B;
+  border-radius: 5px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+#profile #context-menu .context-item {
+  margin: 5px;
+  border-style: none;
+  border-radius: 5px;
+  background-color: #242F40;
+  color: #E5E5E5;
+  width: 100px;
+  height: 30px;
+  transition: all 0.25s;
+}
+#profile #context-menu .context-item:hover {
+  background-color: #202020;
+}
 #profile #presentations .section-content {
   display: flex;
   align-items: center;
@@ -318,7 +345,7 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 #pres-view {
-  height: 88vh;
+  height: 75vh;
   padding: 6vh 6vw;
 }
 #pres-view * {
@@ -333,8 +360,8 @@ p, h1, h2, h3, h4, h5, h6 {
   font-size: 3vh;
 }
 #pres-view article {
-  height: 74vh;
-  width: 88vw;
+  height: 85%;
+  width: 100%;
 }
 #pres-view article div {
   flex-grow: 999;
@@ -351,7 +378,7 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 #pres-view.image-slide article {
   width: 90vw;
-  height: 75vh;
+  height: 60vh;
   display: flex;
   justify-content: space-evenly;
   border-color: red;
@@ -363,6 +390,18 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 #pres-view.image-slide article .img-container img {
   max-width: 100%;
+}
+#pres-view.poll-slide button {
+  width: 100%;
+  margin-bottom: 1vh;
+}
+
+#slide_index {
+  position: absolute;
+  left: 2vw;
+  bottom: 2vh;
+  font-family: "Noto Sans", sans-serif;
+  color: #E5E5E5;
 }
 
 /*# sourceMappingURL=style.css.map */

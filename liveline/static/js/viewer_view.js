@@ -1,1 +1,1 @@
-reloadSlides(true)
+reloadSlides(true);

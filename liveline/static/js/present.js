@@ -2,6 +2,8 @@ const socket = io();
 let hostKey;
 let roomCode;
 
+
+
 // client-side
 socket.on("connect", () => {
     console.log(socket.id); // x8WIv7-mJelg7on_ALbx
@@ -16,6 +18,10 @@ socket.on("newRoom", (data) => {
     roomCode = data.code;
     console.log(hostKey);
     console.log(roomCode);
+});
+
+socket.on("castVote", (data) => {
+    votes[data.slide]
 });
 
 function present() {
@@ -38,14 +44,23 @@ function updateSlide() {
 
 function nextSlide() {
     if (currentSlide + 1 < slideCount) {
-        currentSlide++;
+        incrementCurrentSlide();
         updateSlide();
     }
 }
 
 function lastSlide() {
     if (currentSlide - 1 >= 0) {
-        currentSlide--;
+        decrementCurrentSlide();
         updateSlide();
     }
 }
+
+function pingServer() {
+    socket.emit("pingRoom", {
+        room: roomCode,
+        hostKey: hostKey
+    });
+}
+
+setInterval(pingServer, 29000)

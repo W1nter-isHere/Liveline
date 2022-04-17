@@ -19,14 +19,14 @@
             <a href="/" class="navbar-item" id="navbar-title">Liveline</a>
         </nav>
         <nav id="nav-right">
-            <button class="button navbar-item hoverable" title="Present" onclick="present()">Start Presenting</button>
-            <button class="button navbar-item hoverable" title="Present" hidden="hidden" onclick="present()">Stop Presenting</button>
+            <button class="button navbar-item hoverable" title="Start Presenting" onclick="present()">Start Presenting</button>
+            <button class="button navbar-item hoverable" title="Stop Presenting" hidden="hidden" onclick="present()">Stop Presenting</button>
             <a href="/host/presentation_creator/{{id}}" class="button navbar-item hoverable" title="Edit">Edit</a>
             <button class="button navbar-item hoverable" title="<- Last Slide" onclick="lastSlide()"><- Last Slide</button>
             <button class="button navbar-item hoverable" title="Next Slide ->" onclick="nextSlide()">Next Slide -></button>
         </nav>
     </header>
     <main id="pres-view">
-        
     </main>
+    <span id="slide_index"></span>
 {% endblock %}
