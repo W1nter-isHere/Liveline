@@ -1,21 +1,12 @@
 {
     "users": [
         {
-            "username": "winterSteve25",
-            "password": "$argon2id$v=19$m=65536,t=3,p=4$emgjs5wTJQ0PviZL7knXBA$iYC2hceganuYU6AkImm5il/yAca1FL0yjWehwCSjXsU",
-            "id": "5421806a-1a15-4dbb-9a3c-75004ebc2233",
+            "username": "wower",
+            "password": "$argon2id$v=19$m=65536,t=3,p=4$QUqPFVBRKTfI8mFHHIAtlw$xDwJdxT9QX2b3wkNhbeIsnsGBPZrbR7cyBB4x05Zlpg",
+            "id": "fd8f5047-29d0-444f-9645-a57c28659ef3",
             "pfp_path": "/static/resources/users/unknown_user.svg",
             "presentations": [
-                "dfb74566-1f34-4f0f-9f5d-3c4378a0494f"
-            ]
-        },
-        {
-            "username": "Raster",
-            "password": "$argon2id$v=19$m=65536,t=3,p=4$+tcDCxZSUMpY5CCK03ULYA$828t22JpTeBHfy0KSXQSExsxvY4xa5EHYMUEpAKY9qU",
-            "id": "2ab7db98-7512-4098-8e55-bf707089577b",
-            "pfp_path": "/static/resources/users/unknown_user.svg",
-            "presentations": [
-                "ae3db411-7dc6-4560-8d8c-59ff6f78cd59"
+                "3e93c831-6bda-45ad-a59b-83a7fcf3e33f"
             ]
         }
     ],
@@ -24,42 +15,19 @@
             "slides": [
                 {
                     "typ": "TextSlide",
-                    "title": "Jallo",
-                    "text": "21412odoat",
+                    "title": "EYS",
+                    "text": "WO",
                     "image": null
                 },
                 {
                     "typ": "TitleSlide",
-                    "title": "Tit128r12rj21",
-                    "image": null
-                },
-                {
-                    "typ": "TextSlide",
-                    "title": "Title",
-                    "text": "content",
+                    "title": "UE",
                     "image": null
                 }
             ],
             "name": "Untitled Liveline Presentation",
-            "identifier": "dfb74566-1f34-4f0f-9f5d-3c4378a0494f",
-            "creator": "5421806a-1a15-4dbb-9a3c-75004ebc2233"
-        },
-        {
-            "slides": [
-                {
-                    "typ": "PollSlide",
-                    "title": "Pollreal",
-                    "image": null,
-                    "options": [
-                        "one",
-                        "two",
-                        "three"
-                    ]
-                }
-            ],
-            "name": "Polltest",
-            "identifier": "ae3db411-7dc6-4560-8d8c-59ff6f78cd59",
-            "creator": "2ab7db98-7512-4098-8e55-bf707089577b"
+            "identifier": "3e93c831-6bda-45ad-a59b-83a7fcf3e33f",
+            "creator": "fd8f5047-29d0-444f-9645-a57c28659ef3"
         }
     ],
     "rooms": []

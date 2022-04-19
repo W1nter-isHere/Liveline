@@ -11,22 +11,32 @@
     <script defer src="/static/js/present.js"></script>
 {% endblock %}
 {% block content %}
-    <header id="navbar">
-        <nav id="nav-left">
-            <a href="/" class="navbar-item">
-                <img src="/static/resources/logo.svg" alt="Logo">
-            </a>
-            <a href="/" class="navbar-item" id="navbar-title">Liveline</a>
-        </nav>
-        <nav id="nav-right">
-            <button class="button navbar-item hoverable" title="Start Presenting" onclick="present()">Start Presenting</button>
-            <button class="button navbar-item hoverable" title="Stop Presenting" hidden="hidden" onclick="present()">Stop Presenting</button>
-            <a href="/host/presentation_creator/{{id}}" class="button navbar-item hoverable" title="Edit">Edit</a>
-            <button class="button navbar-item hoverable" title="<- Last Slide" onclick="lastSlide()"><- Last Slide</button>
-            <button class="button navbar-item hoverable" title="Next Slide ->" onclick="nextSlide()">Next Slide -></button>
-        </nav>
-    </header>
-    <main id="pres-view">
-    </main>
-    <span id="slide_index"></span>
+    <div x-data="{ room_code: false }">
+        <header id="navbar">
+            <nav id="nav-left">
+                <a href="/" class="navbar-item">
+                    <img src="/static/resources/logo.svg" alt="Logo">
+                </a>
+                <a href="/" class="navbar-item" id="navbar-title">Liveline</a>
+            </nav>
+            <nav id="nav-right">
+                <button id="present-button" class="button navbar-item hoverable" title="Start Presenting" onclick="present()" @click="room_code = !room_code">Start Presenting</button>
+                <button id="end-present-button" class="button navbar-item hoverable" title="Stop Presenting" onclick="endPresent()">Stop Presenting</button>
+                <a href="/host/presentation_creator/{{id}}" class="button navbar-item hoverable" title="Edit">Edit</a>
+                <button class="button navbar-item hoverable" title="<- Last Slide" onclick="lastSlide()"><- Last Slide</button>
+                <button class="button navbar-item hoverable" title="Next Slide ->" onclick="nextSlide()">Next Slide -></button>
+            </nav>
+        </header>
+        <main id="pres-view">
+        </main>
+        <span id="slide_index"></span>
+    
+        <div class="popup" x-show="room_code">
+            <main>
+                <h1 class="title">Room Code</h1>
+                <p id="room-code-content"></p>
+                <button class="button hoverable" @click="room_code = false">OK</button>
+            </main>
+        </div>
+    </div>
 {% endblock %}

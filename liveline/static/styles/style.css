@@ -189,6 +189,19 @@ p, h1, h2, h3, h4, h5, h6 {
   height: 3vh;
   margin-bottom: 10px;
 }
+.popup main span {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 20px;
+  color: #E5E5E5;
+  margin-bottom: -10px;
+  align-self: start;
+}
+.popup main p {
+  color: #E5E5E5;
+  border: none;
+  border-radius: 3px;
+  margin: 10px;
+}
 .popup main a {
   width: 15vh;
   height: 3vh;

@@ -8,7 +8,6 @@ function deleteSlide() {
 }
 
 function addNewSlide(type) {
-    save();
     httpGetAsync(`/host/presentation_creator/${ID}/add_slide/${type}`, resp => {
         save();
         reloadSlidesEditable(false, true);
@@ -38,23 +37,23 @@ function save() {
     })
 }
 
-// document.addEventListener("click", (event) => {
-//     const contextMenu = document.querySelector("#context-menu");
-//     if (event.target.offsetParent != contextMenu) {
-//         contextMenu.style.display = "none";
-//         contextMenu.removeAttribute("pres-selected");
-//     }
-// });
+document.addEventListener("click", (event) => {
+    const contextMenu = document.querySelector("#context-menu");
+    if (event.target.offsetParent != contextMenu) {
+        contextMenu.style.display = "none";
+        contextMenu.removeAttribute("pres-selected");
+    }
+});
 
-// function setRenameData() {
-//     const contextMenu = document.querySelector("#context-menu");
-//     const presentationid = contextMenu.getAttribute("pres-selected");
-//     const form = document.querySelector("#rename_setup");
-//     const input = document.createElement("input");
-//     input.setAttribute("hidden", "hidden");
-//     input.setAttribute("type", "text");
-//     input.setAttribute("name", "pres_id");
-//     input.setAttribute("id", "pres_id");
-//     input.setAttribute("value", `${presentationid}`)
-//     form.appendChild(input);
-// }
+function setRenameData() {
+    const contextMenu = document.querySelector("#context-menu");
+    const presentationid = contextMenu.getAttribute("pres-selected");
+    const form = document.querySelector("#rename_setup");
+    const input = document.createElement("input");
+    input.setAttribute("hidden", "hidden");
+    input.setAttribute("type", "text");
+    input.setAttribute("name", "pres_id");
+    input.setAttribute("id", "pres_id");
+    input.setAttribute("value", `${presentationid}`)
+    form.appendChild(input);
+}

@@ -1,7 +1,6 @@
 from __future__ import annotations
 from dataclasses import dataclass, asdict
 from liveline.presentation.slides import BaseSlide
-from liveline.presentation.slide import Slide
 from typing import List, Type, Dict, Any
 
 
@@ -40,10 +39,3 @@ class Presentation:
             else:
                 pres.append(asdict(presentation))
         return pres
-
-
-@dataclass
-class WidgetBasedPresentation:
-    slides: List[Type[Slide]]
-    name: str
-    identifier: str

@@ -35,7 +35,7 @@ function reloadSlidesEditable(room, editable) {
     updateIndexLabel();
 }
 
-function renderSlides(room) {
+function reloadSlides(room) {
     reloadSlidesEditable(room, false)
 }
 

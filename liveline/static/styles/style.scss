@@ -240,6 +240,24 @@ p, h1, h2, h3, h4, h5, h6 {
             }
         }
 
+        span {
+            font-family: $font;
+            font-size: 20px;
+            color: $fg;
+            margin-bottom: -10px;
+
+            align-self: start;
+        }
+
+        p {
+            color: $fg;
+
+            border: none;
+            border-radius: 3px;
+
+            margin: 10px;
+        }
+
         a {
             width: 15vh;
             height: 3vh;
