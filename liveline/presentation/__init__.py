@@ -1,1 +1,1 @@
-from . import presentation, slides, widget
+from . import presentation

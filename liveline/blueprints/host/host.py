@@ -9,7 +9,7 @@ from flask import (
     make_response,
 )
 from liveline.logger import logger
-from liveline.presentation import widget, presentation, slides
+from liveline.presentation import presentation, slides
 from liveline.presentation.slides import TitleSlide
 from liveline.database import PRESENTATION_PATH, database, PresentationNotFoundException
 from dataclasses import asdict

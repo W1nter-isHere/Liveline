@@ -10,7 +10,7 @@ from flask import (
     flash
 )
 from liveline.logger import logger
-from liveline.presentation import slide, widget, presentation
+from liveline.presentation import presentation
 from liveline.presentation.slides import TextSlide, ImageSlide
 from liveline.database import database, RoomNotFoundException, PresentationNotFoundException
 from dataclasses import asdict

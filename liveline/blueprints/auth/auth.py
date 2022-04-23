@@ -89,7 +89,6 @@ def signup_internal(username, password, password_confirmation):
         return redirect(url_for("auth.signup"))
 
     hashed = ph.hash(password)
-    hashed_confirm = ph.hash(password_confirmation)
 
     # if password confirmation is different than password we do not proceed
     if password != password_confirmation:
@@ -101,8 +100,6 @@ def signup_internal(username, password, password_confirmation):
     user.username = username
     user.password = hashed
     database.add_user(user)
-
-    login_internal(username, password)
 
     return redirect(url_for("auth.login"))
 
